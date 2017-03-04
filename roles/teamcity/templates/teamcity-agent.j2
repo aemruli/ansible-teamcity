@@ -1,0 +1,18 @@
+[Unit]
+Description=TeamCity Agent
+After=network.target
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+Type=forking
+User={{teamcity.user}}
+Group={{teamcity.user}}
+PIDFile={{teamcity.installation_path}}/buildAgent/logs/buildAgent.pid
+ExecStart={{teamcity.installation_path}}/buildAgent/bin/agent.sh start
+ExecStop={{teamcity.installation_path}}/buildAgent/agent.sh stop
+RestartSec=5
+Restart=on-failure
+RemainAfterExit=yes
+PrivateTmp=yes

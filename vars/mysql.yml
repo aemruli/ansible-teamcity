@@ -1,0 +1,19 @@
+mysql_root_password: secret
+mysql_root_password_update: yes
+mysql_enabled_on_startup: yes
+
+#team city specific configurations
+mysql_innodb_buffer_pool_size: "1024M"
+mysql_innodb_log_file_size: "512M"
+mysql_innodb_flush_log_at_trx_commit: "2"
+mysql_binlog_format: "MIXED"
+
+mysql_databases:
+  - name: teamcity
+    encoding: latin1
+    collation: latin1_general_ci
+mysql_users:
+  - name: teamcity
+    host: "%"
+    password: secret
+    priv: "teamcity.*:ALL"

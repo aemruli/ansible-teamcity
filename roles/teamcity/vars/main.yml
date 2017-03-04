@@ -1,0 +1,17 @@
+
+teamcity:
+  servernames:
+    - teamcity.{{teamcity_domain}}
+  database:
+    name: teamcity
+    user: teamcity
+    password: secret
+  user: teamcity
+  home: "{{teamcity_home}}"
+  port: 8111
+  download_path: "{{teamcity_home}}/TeamCity-{{teamcity_version}}.tar.gz"
+  installation_directory: "{{teamcity_home}}"
+  installation_path: "{{teamcity_home}}/TeamCity"
+  data_path: "{{teamcity_home}}/TeamCityData"
+  download_url: "http://download.jetbrains.com/teamcity/TeamCity-{{ teamcity_version }}.tar.gz"
+  jdbc_url: "http://search.maven.org/remotecontent?filepath=mysql/mysql-connector-java/5.1.41/mysql-connector-java-5.1.41.jar"

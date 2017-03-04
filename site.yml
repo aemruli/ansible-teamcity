@@ -1,0 +1,15 @@
+---
+- name: Install and configure teamcity with mysql
+  gather_facts: yes
+  hosts: localhost
+  become: true
+
+  vars_files:
+    - vars/mysql.yml
+    - vars/teamcity.yml
+    - vars/apache.yml
+
+  roles:
+    - { role: geerlingguy.mysql }
+    - { role: teamcity }
+    - { role: geerlingguy.apache }

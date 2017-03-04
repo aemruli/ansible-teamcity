@@ -1,0 +1,3 @@
+teamcity_home: "/home/teamcity"
+teamcity_version: "10.0.4"
+teamcity_domain: "local"

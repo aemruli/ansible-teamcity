@@ -1,0 +1,19 @@
+apache_listen_port: 80
+apache_remove_default_vhost: true
+
+apache_vhosts:
+  - servername: "build.elasticspring.org"
+    documentroot: "/var/www/vhosts/build_elasticspring_org"
+    extra_parameters: |
+      ProxyRequests       Off
+      ProxyPreserveHost   On
+      ProxyPass           /app/subscriptions ws://127.0.0.1:8111/app/subscriptions connectiontimeout=240 timeout=1200
+      ProxyPassReverse    /app/subscriptions ws://127.0.0.1:8111/app/subscriptions
+      ProxyPass           / http://127.0.0.1:8111/ connectiontimeout=240 timeout=1200
+      ProxyPassReverse    / http://127.0.0.1:8111/
+
+apache_mods_enabled:
+  - proxy.load
+  - proxy_http.load
+  - headers.load
+  - proxy_wstunnel.load

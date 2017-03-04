@@ -1,0 +1,15 @@
+[Unit]
+Description=TeamCity Server
+After=network.target
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+Type=forking
+User={{teamcity.user}}
+Group={{teamcity.user}}
+Environment=TEAMCITY_DATA_PATH={{ teamcity.data_path }}
+PIDFile={{teamcity.installation_path}}/logs/teamcity.pid
+ExecStart={{teamcity.installation_path}}/bin/teamcity-server.sh start
+ExecStop={{teamcity.installation_path}}/bin/teamcity-server.sh stop

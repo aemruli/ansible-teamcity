@@ -1,0 +1,6 @@
+---
+- name: reload teamcity-server
+  service: "name=teamcity-server state=started"
+
+- name: reload teamcity-agent
+  service: "name=teamcity-agent state=started"
